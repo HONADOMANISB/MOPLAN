@@ -1,0 +1,60 @@
+tr td{
+    font-size: 12px;
+
+
+}
+table{
+    border-collapse: separate;
+    border-spacing: 5px;
+
+}
+
+.modul{
+    background-color: rgba(0, 171, 250, 0.986);
+    color: white;
+    border-radius: 10px;
+
+}
+p{
+    text-align: center;
+    margin-top: 5px;
+}
+.alin{
+    width: 115px;
+}
+.modul td{
+    text-align: center;
+}
+.progreso{
+    background-color: coral;
+    color: white;
+    border-radius: 9px ;
+}
+
+input{
+    text-align: center;
+}
+
+.regs{
+    background-color: #43c08b;
+    color: white;
+}
+.danger{
+    background-color: #c93b5f;
+    color: white;
+}
+.report{
+    background-color:#5e97b9 ;
+    color: white;
+}
+.input-activo{
+    border: 3px solid #002374;
+}
+
+.custom-dropdown-width {
+    width: 40px; 
+  }
+  .validado-icono { color: green;  
+} 
+.invalidado-icono { color: red; }
+
