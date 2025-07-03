@@ -359,7 +359,7 @@
 																		<i class="fa-solid fa-check"></i>
 
 																		</button>
-																		@if(detalle.TIPO_REGISTRO=='BANCO DE DATOS'){
+																		@if(detalle.TIPO_REGISTRO=='BANCO DE DATOS' || detalle.TIPO_REGISTRO=='SIGHOS'){
 																		<button class="btn danger btn-sm w-50 ms-1" 
 																		(click)=" invalidarEjecucion(detalle.EJECUTADO,detalle.MOTIVO,index +1,'PI')" [disabled]="cerrar_ejecutado(detalle.FECHA_BLOQUEO)">
 																		<i class="fa-solid fa-xmark"></i>
@@ -367,7 +367,7 @@
 																	 }
 																	}
 																	
-																	@if(detalle.TIPO_REGISTRO=='BANCO DE DATOS'){
+																	@if(detalle.TIPO_REGISTRO=='BANCO DE DATOS' || detalle.TIPO_REGISTRO=='SIGHOS'){
 																		<div class="btn-group ms-1" role="group">
 																			<button id="btnGroupVerticalDrop1" type="button" class="btn btn-secondary btn-sm dropdown-toggle  waves-light waves-effect" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 																				<i class="fa-solid fa-file"></i>
@@ -438,7 +438,7 @@
 																		</button>
 																	}
 																	}
-																	@if(detalle.TIPO_REGISTRO=='BANCO DE DATOS'){
+																	@if(detalle.TIPO_REGISTRO=='BANCO DE DATOS' || detalle.TIPO_REGISTRO=='SIGHOS'){
 																		<div class="btn-group ms-1" role="group">
 																			<button id="btnGroupVerticalDrop1" type="button" class="btn btn-secondary btn-sm dropdown-toggle  waves-light waves-effect" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 																				<i class="fa-solid fa-file"></i>
@@ -505,7 +505,7 @@
 																		(click)=" guardar(detalle.EJECUTADO,index +1,detalle.MOTIVO,'SR',detalle.TIPO_REGISTRO)" [disabled]="cerrar_ejecutado(detalle.FECHA_BLOQUEO)">
 																		<i class="fa-solid fa-check"></i>
 																		</button>
-																		@if(detalle.TIPO_REGISTRO=='BANCO DE DATOS'){
+																		@if(detalle.TIPO_REGISTRO=='BANCO DE DATOS' || detalle.TIPO_REGISTRO=='SIGHOS'){
 																		<button class="btn danger btn-sm w-50 ms-1" 
 																		(click)=" invalidarEjecucion(detalle.EJECUTADO,detalle.MOTIVO,index +1,'SR')" [disabled]="cerrar_ejecutado(detalle.FECHA_BLOQUEO)">
 																		<i class="fa-solid fa-xmark"></i>
@@ -513,7 +513,7 @@
 																	}
 																	}
 																	
-																	@if(detalle.TIPO_REGISTRO=='BANCO DE DATOS'){
+																	@if(detalle.TIPO_REGISTRO=='BANCO DE DATOS' || detalle.TIPO_REGISTRO=='SIGHOS'){
 																		<button class="btn report btn-sm w-50 ms-1" (click)="generarDetallePOI(index +1,'PR')" >						
 																			<i class="fa-solid fa-file-pdf"></i>
 																		</button>
