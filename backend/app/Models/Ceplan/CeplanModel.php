@@ -23,10 +23,10 @@ class CeplanModel extends Model
     DB::beginTransaction(); // Iniciar una transacción
  
     try {
-          // DB::table('EX_EXPORTA_POI')
-         //->where('YEAR', $año )
-         //->where('TIPO', $tipo )
-         //->update(['SG_EST_REGISTRO' => 'H']); 
+         //  DB::table('EX_EXPORTA_POI')
+         // ->where('YEAR', $año )
+         //  ->where('TIPO', $tipo )
+         //  ->update(['SG_EST_REGISTRO' => 'H']); 
 
         foreach ($resultado as $maestra) {
             DB::table('EX_EXPORTA_POI')->insert([

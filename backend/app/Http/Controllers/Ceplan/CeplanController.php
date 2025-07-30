@@ -30,7 +30,7 @@ class CeplanController extends JSONResponseController
         $sheet = $excel->getActiveSheet();
         $highestRow = $sheet->getHighestDataRow();
         $date = Carbon::now();  
-        $tipo = $request->post('tipo');
+        $tipo = strtoupper(trim($request->post('tipo'))); 
         $data=[];
         $vnp=[];
         $resultado = [];
@@ -122,7 +122,8 @@ class CeplanController extends JSONResponseController
                         'MES' => '6',
                         'PROGRAMADO' => $sheet->getCell('AN' . $row)->getCalculatedValue(),
                         'EJECUTADO' =>  $sheet->getCell('BA' . $row)->getCalculatedValue(),
-                       
+                        'DETALLE_MOTIVO'    =>  $sheet->getCell('BS' . $row)->getCalculatedValue(),
+                        'MOTIVO'     =>  $sheet->getCell('BT' . $row)->getCalculatedValue(),
                     ],
                     [
                         'MES' => '7',
