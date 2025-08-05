@@ -57,6 +57,9 @@ reportes(){
     case 'RCC':
           this.reporteCentroCostos()
              break;
+     case 'RP':
+          this.reporteLogros()
+            break;
     default:
       break;
   }
@@ -209,6 +212,28 @@ reporteCentroCostos(){
           const a = document.createElement('a');
          a.href = url;
           a.download = `Reporte  de Centro de Csotos ${year}.xlsx`;
+          a.click();
+          window.URL.revokeObjectURL(url);
+      });
+
+}
+reporteProgramacion(){
+  const periodo=this.periodo
+  const year=this.year
+  const tipo=this.tipo
+  this.loading= true
+  this.ProcesarEjecucionService$.reporteCentroCostos(periodo,year,tipo)
+     .pipe(
+             finalize(() => {
+              this.loading = false;
+          })
+      )
+      .subscribe((response: Blob) => {
+        console.log(this.trimestre)
+          const url = window.URL.createObjectURL(response);
+          const a = document.createElement('a');
+         a.href = url;
+          a.download = `Reporte  de Programacion  ${year}.xlsx`;
           a.click();
           window.URL.revokeObjectURL(url);
       });
