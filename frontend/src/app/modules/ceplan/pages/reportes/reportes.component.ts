@@ -28,7 +28,7 @@ export class ReportesComponent {
 
 changeTipoReporte() { 
     const perfil = localStorage.getItem('perfil'); 
-    this.visible = ((this.rp == 'RC' && perfil =='ADMIN') || this.rp=='RI'|| this.rp=='RCD'|| this.rp=='RCO' || this.rp=='RCC'   ) ? true : false;
+    this.visible = ((this.rp == 'RC' && perfil =='ADMIN') || this.rp=='RI'|| this.rp=='RCD'|| this.rp=='RCO' || this.rp=='RCC'  ) ? true : false;
     this.visible_trimestre=this.rp=='RL'?true:false;
   }
 
@@ -58,7 +58,7 @@ reportes(){
           this.reporteCentroCostos()
              break;
      case 'RP':
-          this.reporteLogros()
+          this.reporteProgramacion()
             break;
     default:
       break;
@@ -222,7 +222,7 @@ reporteProgramacion(){
   const year=this.year
   const tipo=this.tipo
   this.loading= true
-  this.ProcesarEjecucionService$.reporteCentroCostos(periodo,year,tipo)
+  this.ProcesarEjecucionService$.reporteProgramacion(year,tipo)
      .pipe(
              finalize(() => {
               this.loading = false;

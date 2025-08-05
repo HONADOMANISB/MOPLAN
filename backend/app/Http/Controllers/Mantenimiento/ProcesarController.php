@@ -1024,6 +1024,7 @@ class ProcesarController extends JSONResponseController
         $year = $request->get('year');
         $tipo = $request->get('tipo');
         $user = Auth::user();
+        $perfil = $user->id_perfil;
         $servicio = $user->servicio;
         // Ruta a la plantilla de Excel
         $templatePath = resource_path('templates/reporte_programado.xlsx');
@@ -1033,12 +1034,11 @@ class ProcesarController extends JSONResponseController
         $spreadsheet = $reader->load($templatePath);
         $report = new ProcesarModel();
         $resultado = $report->reporteResumenMetas($year, $tipo, $servicio);
-        $sheet = $spreadsheet->getSheetByName('REPORTE-CONSOLIDADO');
+        $sheet = $spreadsheet->getSheetByName('REPORTE-PROGRAMACIÓN');
         // Definir estilos para cada valoración
         
         $row = 15;
         foreach ($resultado as $valor) {
-
             $sheet->setCellValue('B' . $row, $valor['OEI']);
             $sheet->setCellValue('C' . $row, $valor['OBJETIVO_ESTRATEGICO']);
             $sheet->setCellValue('D' . $row, $valor['AEI']);
@@ -1068,7 +1068,7 @@ class ProcesarController extends JSONResponseController
             $sheet->setCellValue('AB' . $row, "=Q" . $row . "+" . "R" . $row . "+" . "S" . $row 
                                       . "+" . "T" . $row . "+" . "U" . $row . "+" . "V" . $row
                                       . "+" . "W" . $row . "+" . "X" . $row . "+" . "Y" . $row
-                                      . "+" . "Z" . $row . "+" . "AA" . $row
+                                      . "+" . "Z" . $row . "+" . "AA" . $row . "+" . "P" . $row
                                     
                                     );
 

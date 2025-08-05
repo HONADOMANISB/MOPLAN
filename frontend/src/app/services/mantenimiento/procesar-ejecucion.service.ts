@@ -105,10 +105,9 @@ reporteExcelConsolidado(periodo:any,year:any,tipo:any){
       tipo
     }, responseType: 'blob' });
  }
-  reporteProgramacion(periodo:any,year:any,tipo:any){
+  reporteProgramacion(year:any,tipo:any){
   return this.http.get('/api/mantenimiento/reporte-programacion', { 
     params:{
-      periodo,
       year,
       tipo
     }, responseType: 'blob' });
