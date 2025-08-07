@@ -551,4 +551,49 @@ export class ActividadOperComponent implements OnInit {
         ];
         return meses[index] || '';
       }
+
+
+  getTotalProgramadoPI(): number {
+       return this.detalles.reduce((total, item) => {
+    if (item.MES >= 1 && item.MES <= 12) {
+      return parseInt(total) + (parseInt(item.PROGRAMADO)|| 0); // Agregué protección contra undefined
+    }
+    return total;
+  }, 0);
+     
+  }
+  
+ getTotalEjecutadoPI(): number {
+  return this.detalles.reduce((total, item) => {
+    if (item.MES >= 1 && item.MES <= 12) {
+      return parseInt(total) + (parseInt(item.EJECUTADO)|| 0); // Agregué protección contra undefined
+    }
+    return total;
+  }, 0);
+}
+  getTotalProgramadoPR(): number {
+     return this.detalles_pr.reduce((total, item) => {
+    if (item.MES >= 1 && item.MES <= 12) {
+      return parseInt(total) + (parseInt(item.PROGRAMADO)|| 0); // Agregué protección contra undefined
+    }
+    return total;
+  }, 0);
+     
+  }
+  
+ getTotalEjecutadoPR(): number {
+  return this.detalles_pr.reduce((total, item) => {
+    if (item.MES >= 1 && item.MES <= 12) {
+      return parseInt(total) + (parseInt(item.EJECUTADO)|| 0); // Agregué protección contra undefined
+    }
+    return total;
+  }, 0);
+}
+  getTotalProgramadoSR(): number {
+    return this.detalles_sr.reduce((total, detalle) => parseInt(total) + (parseInt(detalle.PROGRAMADO )|| 0), 0);
+}
+
+  getTotalEjecutadoSR(): number {
+    return this.detalles_sr.reduce((total, detalle) => parseInt(total) + (parseInt(detalle.EJECUTADO) || 0), 0);
+}
 }

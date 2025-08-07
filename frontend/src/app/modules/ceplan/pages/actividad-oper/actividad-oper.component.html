@@ -179,6 +179,7 @@
 												</thead>
 												<tbody class>
 													@for(detalle of detalles ; track detalle.id;let index=$index ){
+														@if(detalle.MES <13){
 													<tr>
 														<td>{{ getNombreMes(index)}}</td>
 														<td>
@@ -189,17 +190,19 @@
 															 
 														</td>													
 													</tr>
+														}
+											
 													
 													}
-													<!-- <tr> 
+													 <tr> 
 														<td>Total</td>
 														 <td>
-															<input type="text" class="form-control form-control-sm" [value]="" [disabled]="true" />
+															<input type="text" class="form-control form-control-sm" [value]="getTotalProgramadoPI()" [disabled]="true" />
 														 </td>
 														<td>
-															<input type="text" class="form-control form-control-sm" [value]="" [disabled]="true" /> 
+															<input type="text" class="form-control form-control-sm" [value]="getTotalEjecutadoPI()" [disabled]="true" /> 
 														</td>
-													</tr> -->
+													</tr> 
 												</tbody>
 											</table>
 											
@@ -224,7 +227,8 @@
 													</thead>
 													<tbody class>
 														@for(detalle of detalles_pr ; track detalle.id;let index=$index ){
-														<tr>															
+															@if(detalle.MES <13){
+	<tr>															
 															<td>
 																<input type="text" class="form-control form-control-sm" [(ngModel)]=" detalle.PROGRAMADO" [disabled]="true" />
 															</td>
@@ -234,9 +238,21 @@
 																 
 															</td>														
 														</tr>
+															}
+													
 													
 																					
 														}
+									
+														<tr> 
+												
+														 <td>
+															<input type="text" class="form-control form-control-sm" [value]="getTotalProgramadoPR()" [disabled]="true" />
+														 </td>
+														<td>
+															<input type="text" class="form-control form-control-sm" [value]="getTotalEjecutadoPR()" [disabled]="true" /> 
+														</td>
+													</tr> 											
 													</tbody>
 												</table>
 												
@@ -310,6 +326,7 @@
 												<tbody class>
 													@if(detalles.length!=0 && detalles_pr.length==0 && detalles_sr.length==0 ){
 														@for(detalle of detalles ; track detalle.id;let index=$index ){
+															@if(detalle.MES <13){
 															<tr>							
 																<td>
 																	<div class="progress" style="
@@ -374,12 +391,15 @@
 																	}
 																</td>													
 															</tr>
+															}
+													
 															}@empty{
 																<tr></tr>
 															}
 													}@else if(detalles_pr.length!=0 && detalles_sr.length==0){
 														@for(detalle of detalles_pr ; track detalle.id;let index=$index ){
-															<tr>							
+															@if(detalle.MES <13){
+<tr>							
 																<td>
 																	<div class="progress" style="
 																			height: 27px;
@@ -446,12 +466,15 @@
 																	
 																</td>													
 															</tr>
+															}
+															
 															}@empty{
 																<tr></tr>
 															}	
 													}@else if(detalles_sr.length!=0){
 														@for(detalle of detalles_sr ; track detalle.id;let index=$index ){
-															<tr>
+																@if(detalle.MES <13){
+<tr>
 															
 																<td>
 																	<div class="progress" style="
@@ -512,6 +535,9 @@
 																	}
 																</td>													
 															</tr>
+																}
+															
+															
 															}@empty{
 																<tr></tr>
 															}
